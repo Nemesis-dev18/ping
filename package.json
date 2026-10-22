@@ -1,0 +1,12 @@
+{
+  "name": "ping-worker",
+  "version": "1.0.0",
+  "private": true,
+  "main": "ping.js",
+  "scripts": {
+    "start": "node ping.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
