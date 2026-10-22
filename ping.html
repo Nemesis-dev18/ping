@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ping</title>
+</head>
+<body>
+  <p id="estado">Esperando primera petición…</p>
+
+  <script>
+    // Cambia esta URL por la página que quieres pedir.
+    const URL_PAGINA = "https://pagina-detox-pantallas.onrender.com";
+    const INTERVALO_MS = 40000;
+
+    const estado = document.getElementById("estado");
+
+    async function pedir() {
+      try {
+        const res = await fetch(URL_PAGINA, { method: "GET", mode: "no-cors", cache: "no-store" });
+        estado.textContent = `Última petición enviada a las ${new Date().toLocaleTimeString()}`;
+      } catch (err) {
+        estado.textContent = `Error a las ${new Date().toLocaleTimeString()}`;
+      }
+    }
+
+    pedir();
+    setInterval(pedir, INTERVALO_MS);
+  </script>
+</body>
+</html>
